@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hexagon Trial</title>
+    <style>
+        *,
+      *:after,
+      *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #111921;
+        color: white;
+      }
+
+      :root {
+        --secondary-light-gray: white;
+        --secondary-dark-gray: #111921;
+        --secondary-blue: #1a80c5;
+        --secondary-ltblue: #111921;
+        --secondary-dkblue: #111921;
+      }
+      .hexagon-grid-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 96vh;
+        flex-wrap: wrap;
+        width: 60%;
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+        
+      }
+      .hexagon-upper-row {
+        display: flex;
+        flex-direction: row;
+      }
+      .hexagon-lower-row {
+        display: flex;
+        flex-direction: row;
+      }
+      .hexagon {
+        position: relative;
+        width: 141.8px;
+        height: 85.83px;
+        background-color: var(--secondary-blue);
+        margin: 48px 6px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hexagon:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+        bottom: 100%;
+        border-bottom: 40.41px solid var(--secondary-dark-gray);
+      }
+      .hexagon:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+        top: 100%;
+        border-top: 40.41px solid var(--secondary-dark-gray);
+      }
+      .hexagon.hexagon-blue:before {
+        border-bottom: 40.41px solid var(--secondary-blue);
+      }
+      .hexagon.hexagon-blue:after {
+        border-top: 40.41px solid var(--secondary-blue);
+      }
+       /*1st Inner Hexagon */
+       .hexagon-1-inner {
+        position: relative;
+       
+        width: 136px;
+        height: 78.52px;
+        background-color: var(--inner_1_col, #111921);
+        margin: 39.26px 0;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .hexagon-1-inner::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+       
+        border-bottom: 39.26px solid;
+        border-bottom-color: var(--inner_1_col_bef, #111921);
+        /* border-bottom: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-1-inner::after {
+        content: "";
+        position: absolute;
+        width: 0;
+    
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 39.26px solid;
+        border-top-color: var(--inner_1_col_aft, #111921);
+        /* border-top: 39.26px solid var(--secondary-light-gray); */
+      }
+      
+   
+      /*2nd Inner Hexagon */
+      .hexagon-2-inner {
+        position: relative;
+        width: 136px;
+        height: 78.52px;
+        background-color: var(--inner_2_col, #111921);
+        margin: 39.26px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hexagon-2-inner::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+        border-bottom: 39.26px solid;
+        border-bottom-color: var(--inner_2_col_bef, #111921);
+        /* border-bottom: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-2-inner::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 39.26px solid;
+        border-top-color: var(--inner_2_col_aft, #111921);
+        /* border-top: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      /*3rd Inner Hexagon */
+      .hexagon-3-inner {
+        position: relative;
+        width: 136px;
+        height: 78.52px;
+        background-color: var(--inner_3_col, #111921);
+        margin: 39.26px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hexagon-3-inner::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+        border-bottom: 39.26px solid;
+        border-bottom-color: var(--inner_3_col_bef, #111921);
+        /* border-bottom: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-3-inner::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 39.26px solid;
+        border-top-color: var(--inner_3_col_aft, #111921);
+        /* border-top: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      /*4th Inner Hexagon */
+      .hexagon-4-inner {
+        position: relative;
+        width: 136px;
+        height: 78.52px;
+        background-color: var(--inner_4_col, #111921);
+        margin: 39.26px 0;
+        display: flex;
+        text-align: justify;
+        justify-content: center;
+      }
+
+      .hexagon-4-inner::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+        border-bottom: 39.26px solid;
+        border-bottom-color: var(--inner_4_col_bef, #111921);
+        /* border-bottom: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-4-inner::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 39.26px solid;
+        border-top-color: var(--inner_4_col_aft, #111921);
+        /* border-top: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      /*5th Inner Hexagon */
+      .hexagon-5-inner {
+        position: relative;
+        width: 136px;
+        height: 78.52px;
+        background-color: var(--inner_5_col, #111921);
+        margin: 39.26px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hexagon-5-inner::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+        border-bottom: 39.26px solid;
+        border-bottom-color: var(--inner_5_col_bef, #111921);
+        /* border-bottom: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-5-inner::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 39.26px solid;
+        border-top-color: var(--inner_5_col_aft, #111921);
+        /* border-top: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      /*6th Inner Hexagon */
+      .hexagon-6-inner {
+        position: relative;
+        width: 136px;
+        height: 78.52px;
+        background-color: var(--inner_6_col, #111921);
+        margin: 39.26px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hexagon-6-inner::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+        border-bottom: 39.26px solid;
+        border-bottom-color: var(--inner_6_col_bef, #111921);
+        /* border-bottom: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-6-inner::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 39.26px solid;
+        border-top-color: var(--inner_6_col_aft, #111921);
+        /* border-top: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      /*7th Inner Hexagon */
+      .hexagon-7-inner {
+        position: relative;
+        width: 136px;
+        height: 78.52px;
+        background-color: var(--inner_7_col, #111921);
+        margin: 39.26px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hexagon-7-inner::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        bottom: 100%;
+        border-bottom: 39.26px solid;
+        border-bottom-color: var(--inner_7_col_bef, #111921);
+        /* border-bottom: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-7-inner::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 68px solid transparent;
+        border-right: 68px solid transparent;
+        z-index: 1;
+        top: 100%;
+        border-top: 39.26px solid;
+        border-top-color: var(--inner_7_col_aft, #111921);
+        /* border-top: 39.26px solid var(--secondary-light-gray); */
+      }
+
+      .hexagon-content {
+        /* transform: translate(-50%, -50%); */
+        margin: auto;
+        font-size: 15px;
+      }
+     
+      .content-1,.content-2,.content-3,.content-4,.content-5,.content-6,.content-7,.content-8,.content-9,.content-10,.content-11,.content-12{
+    display: none;
+    color:white;
+
+    }
+     
+    
+     
+    
+
+
+      /* Media queries */
+      @media (max-width: 780px) and (min-width: 640px) {
+        .hexagon-grid-container {
+          /* width: 640px; */
+          margin: auto;
+          transform: rotate(-90deg);
+        }
+        .hexagon:nth-child(7n + 5) {
+          margin-left: 74px;
+        }
+      }
+   
+      @media (max-width: 639px) {
+        .hexagon-grid-container {
+          /* width: 320px; */
+          margin: auto;
+          transform: rotate(-90deg);
+        }
+        .hexagon:nth-child(3n + 3) {
+          margin-left: 74px;
+        }
+      }
+    </style>
+    </head>
+    <body>
+<ul class="hexagon-grid-container">
+      <div class="hexagon-upper-row">
+        <li class="hexagon hexagon-blue">
+          <div class="hexagon-1-inner">
+            <span class="hexagon-content"> <h2>FrontEnd</h2> </span>
+          </div>
+        </li>
+        <li class="hexagon hexagon-blue">
+          <div class="hexagon-2-inner">
+            <span class="hexagon-content"> <h2>BackEnd</h2> </span>
+          </div>
+        </li>
+        <li class="hexagon hexagon-blue">
+          <div class="hexagon-3-inner">
+            <span class="hexagon-content"> <h2>DataBase</h2> </span>
+          </div>
+        </li>
+      </div>
+
+      <div class="hexagon-lower-row">
+        <li class="hexagon hexagon-blue">
+          <div class="hexagon-4-inner">
+            <h3 class="content-1">HTML</h3>
+            <h3 class="content-2">C++</h3>
+            <h3 class="content-3">MySQL</h3>
+          </div>
+        </li>
+        <li class="hexagon hexagon-blue">
+          <div class="hexagon-5-inner">
+            <h3 class="content-4">CSS</h3>
+            <h3 class="content-5">Python</h3> 
+            <h3 class="content-6">Oracle</h3>
+          </div>
+        </li>
+        <li class="hexagon hexagon-blue">
+          <div class="hexagon-6-inner"> 
+            <h3 class="content-7">JavaScript</h3>
+            <h3 class="content-8">Java</h3>
+            <h3 class="content-9">MongoDB</h3>
+          </div>
+        </li>
+        <li class="hexagon hexagon-blue">
+          <div class="hexagon-7-inner">
+            <h3 class="content-10">BootStrap</h3>
+            <h3 class="content-11">PHP</h3>
+            <h3 class="content-12">SQLServer</h3>
+          </div>
+        </li>
+      </div>
+    </ul>
+<script>
+  // Get the hexagon inner element
+    const hex_1_inn = document.querySelector(".hexagon-1-inner");
+      const hex_2_inn = document.querySelector(".hexagon-2-inner");
+      const hex_3_inn = document.querySelector(".hexagon-3-inner");
+      const hex_4_inn = document.querySelector(".hexagon-4-inner");
+      const hex_5_inn = document.querySelector(".hexagon-5-inner");
+      const hex_6_inn = document.querySelector(".hexagon-6-inner");
+      const hex_7_inn = document.querySelector(".hexagon-7-inner");
+      const content_1_inn=document.querySelector(".content-1");
+      const content_2_inn=document.querySelector(".content-2");
+      const content_3_inn=document.querySelector(".content-3");
+      const content_4_inn=document.querySelector(".content-4");
+      const content_5_inn=document.querySelector(".content-5");
+      const content_6_inn=document.querySelector(".content-6");
+      const content_7_inn=document.querySelector(".content-7");
+      const content_8_inn=document.querySelector(".content-8");
+      const content_9_inn=document.querySelector(".content-9");
+      const content_10_inn=document.querySelector(".content-10");
+      const content_11_inn=document.querySelector(".content-11");
+      const content_12_inn=document.querySelector(".content-12");
+      const hexagonGridContainer=document.querySelector(".hexagon-grid-container");
+
+      // Get the computed styles of the ::before and ::after pseudo-elements
+      const inn_1_beforeStyles = window.getComputedStyle(hex_1_inn, "::before");
+      const inn_1_afterStyles = window.getComputedStyle(hex_1_inn, "::after");
+
+      hex_1_inn.addEventListener("mouseenter", () => {
+        // Change the styles of the hexagon class
+        hex_1_inn.style.backgroundColor = "red";
+        hex_1_inn.style.setProperty("--inner_1_col_bef", "red");
+        hex_1_inn.style.setProperty("--inner_1_col_aft", "red");
+        hex_4_inn.style.backgroundColor = "red";
+        hex_4_inn.style.setProperty("--inner_4_col_bef", "red");
+        hex_4_inn.style.setProperty("--inner_4_col_aft", "red");
+        hex_5_inn.style.backgroundColor = "red";
+        hex_5_inn.style.setProperty("--inner_5_col_bef", "red");
+        hex_5_inn.style.setProperty("--inner_5_col_aft", "red");
+        hex_6_inn.style.backgroundColor = "red";
+        hex_6_inn.style.setProperty("--inner_6_col_bef", "red");
+        hex_6_inn.style.setProperty("--inner_6_col_aft", "red");
+        hex_7_inn.style.backgroundColor = "red";
+        hex_7_inn.style.setProperty("--inner_7_col_bef", "red");
+        hex_7_inn.style.setProperty("--inner_7_col_aft", "red");
+        
+        content_1_inn.style.display="block";
+        content_4_inn.style.display="block";
+        content_7_inn.style.display="block";
+        content_10_inn.style.display="block";
+        hexagonGridContainer.style.transform="rotate(90deg)";
+        
+      });
+      hex_1_inn.addEventListener("mouseleave", () => {
+        // Change the styles of the hexagon class
+        hex_1_inn.style.backgroundColor = "#111921";
+        hex_1_inn.style.setProperty("--inner_1_col_bef", "#111921");
+        hex_1_inn.style.setProperty("--inner_1_col_aft", "#111921");
+        hex_4_inn.style.backgroundColor = "#111921";
+        hex_4_inn.style.setProperty("--inner_4_col_bef", "#111921");
+        hex_4_inn.style.setProperty("--inner_4_col_aft", "#111921");
+        hex_5_inn.style.backgroundColor = "#111921";
+        hex_5_inn.style.setProperty("--inner_5_col_bef", "#111921");
+        hex_5_inn.style.setProperty("--inner_5_col_aft", "#111921");
+        hex_6_inn.style.backgroundColor = "#111921";
+        hex_6_inn.style.setProperty("--inner_6_col_bef", "#111921");
+        hex_6_inn.style.setProperty("--inner_6_col_aft", "#111921");
+        hex_7_inn.style.backgroundColor = "#111921";
+        hex_7_inn.style.setProperty("--inner_7_col_bef", "#111921");
+        hex_7_inn.style.setProperty("--inner_7_col_aft", "#111921");
+        
+        
+        content_1_inn.style.display="none";
+        content_4_inn.style.display="none";
+        content_7_inn.style.display="none";
+        content_10_inn.style.display="none";
+      });
+      hex_2_inn.addEventListener("mouseenter", () => {
+        // Change the styles of the .box class
+        hex_2_inn.style.backgroundColor = "blue";
+        hex_2_inn.style.setProperty("--inner_2_col_bef", "blue");
+        hex_2_inn.style.setProperty("--inner_2_col_aft", "blue");
+        hex_4_inn.style.backgroundColor = "blue";
+        hex_4_inn.style.setProperty("--inner_4_col_bef", "blue");
+        hex_4_inn.style.setProperty("--inner_4_col_aft", "blue");
+        hex_5_inn.style.backgroundColor = "blue";
+        hex_5_inn.style.setProperty("--inner_5_col_bef", "blue");
+        hex_5_inn.style.setProperty("--inner_5_col_aft", "blue");
+        hex_6_inn.style.backgroundColor = "blue";
+        hex_6_inn.style.setProperty("--inner_6_col_bef", "blue");
+        hex_6_inn.style.setProperty("--inner_6_col_aft", "blue");
+        hex_7_inn.style.backgroundColor = "blue";
+        hex_7_inn.style.setProperty("--inner_7_col_bef", "blue");
+        hex_7_inn.style.setProperty("--inner_7_col_aft", "blue");
+        content_2_inn.style.display="block";
+        content_5_inn.style.display="block";
+        content_8_inn.style.display="block";
+        content_11_inn.style.display="block";
+        hexagonGridContainer.style.transform="rotate(180deg)";
+      });
+      hex_2_inn.addEventListener("mouseleave", () => {
+        // Change the styles of the .box class
+        hex_2_inn.style.backgroundColor = "#111921";
+        hex_2_inn.style.setProperty("--inner_2_col_bef", "#111921");
+        hex_2_inn.style.setProperty("--inner_2_col_aft", "#111921");
+        hex_4_inn.style.backgroundColor = "#111921";
+        hex_4_inn.style.setProperty("--inner_4_col_bef", "#111921");
+        hex_4_inn.style.setProperty("--inner_4_col_aft", "#111921");
+        hex_5_inn.style.backgroundColor = "#111921";
+        hex_5_inn.style.setProperty("--inner_5_col_bef", "#111921");
+        hex_5_inn.style.setProperty("--inner_5_col_aft", "#111921");
+        hex_6_inn.style.backgroundColor = "#111921";
+        hex_6_inn.style.setProperty("--inner_6_col_bef", "#111921");
+        hex_6_inn.style.setProperty("--inner_6_col_aft", "#111921");
+        hex_7_inn.style.backgroundColor = "#111921";
+        hex_7_inn.style.setProperty("--inner_7_col_bef", "#111921");
+        hex_7_inn.style.setProperty("--inner_7_col_aft", "#111921");
+
+        content_2_inn.style.display="none";
+        content_5_inn.style.display="none";
+        content_8_inn.style.display="none";
+        content_11_inn.style.display="none";
+      });
+
+      hex_3_inn.addEventListener("mouseenter", () => {
+        // Change the styles of the .box class
+        hex_3_inn.style.backgroundColor = "purple";
+        hex_3_inn.style.setProperty("--inner_3_col_bef", "purple");
+        hex_3_inn.style.setProperty("--inner_3_col_aft", "purple");
+        hex_4_inn.style.backgroundColor = "purple";
+        hex_4_inn.style.setProperty("--inner_4_col_bef", "purple");
+        hex_4_inn.style.setProperty("--inner_4_col_aft", "purple");
+        hexagonGridContainer.style.transform="rotate(270deg)";
+        hex_5_inn.style.backgroundColor = "purple";
+        hex_5_inn.style.setProperty("--inner_5_col_bef", "purple");
+        hex_5_inn.style.setProperty("--inner_5_col_aft", "purple");
+        hex_6_inn.style.backgroundColor = "purple";
+        hex_6_inn.style.setProperty("--inner_6_col_bef", "purple");
+        hex_6_inn.style.setProperty("--inner_6_col_aft", "purple");
+        hex_7_inn.style.backgroundColor = "purple";
+        hex_7_inn.style.setProperty("--inner_7_col_bef", "purple");
+        hex_7_inn.style.setProperty("--inner_7_col_aft", "purple");
+
+        content_3_inn.style.display="block";
+        content_6_inn.style.display="block";
+        content_9_inn.style.display="block";
+        content_12_inn.style.display="block";
+      });
+
+      hex_3_inn.addEventListener("mouseleave", () => {
+        // Change the styles of the .box class
+        hex_3_inn.style.backgroundColor = "#111921";
+        hex_3_inn.style.setProperty("--inner_3_col_bef", "#111921");
+        hex_3_inn.style.setProperty("--inner_3_col_aft", "#111921");
+        hex_4_inn.style.backgroundColor = "#111921";
+        hex_4_inn.style.setProperty("--inner_4_col_bef", "#111921");
+        hex_4_inn.style.setProperty("--inner_4_col_aft", "#111921");
+        hex_5_inn.style.backgroundColor = "#111921";
+        hex_5_inn.style.setProperty("--inner_5_col_bef", "#111921");
+        hex_5_inn.style.setProperty("--inner_5_col_aft", "#111921");
+        hex_6_inn.style.backgroundColor = "#111921";
+        hex_6_inn.style.setProperty("--inner_6_col_bef", "#111921");
+        hex_6_inn.style.setProperty("--inner_6_col_aft", "#111921");
+        hex_7_inn.style.backgroundColor = "#111921";
+        hex_7_inn.style.setProperty("--inner_7_col_bef", "#111921");
+        hex_7_inn.style.setProperty("--inner_7_col_aft", "#111921");
+
+        content_3_inn.style.display="none";
+        content_6_inn.style.display="none";
+        content_9_inn.style.display="none";
+        content_12_inn.style.display="none";
+      });
+</script>
+</body>
+</html>
